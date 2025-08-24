@@ -1,4 +1,10 @@
-const HomePage=()=>{
-    return <div>Home Page</div>
-}
-export default HomePage
+import CoursesList from "./Components/CoursesList";
+
+const HomePage = () => {
+  return (
+    <div>
+      <CoursesList />
+    </div>
+  );
+};
+export default HomePage;

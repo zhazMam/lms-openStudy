@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom"
+
 const Header=()=>{
-    return <header>
-        Header
-    </header>
+    return (<div><ul>
+            <li><Link to="/main">Home</Link></li>
+            <li><Link to="/courses">Courses</Link></li>
+        </ul></div>)
 }
 export default Header
