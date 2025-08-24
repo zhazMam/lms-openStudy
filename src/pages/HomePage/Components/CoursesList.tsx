@@ -12,9 +12,16 @@ const CoursesList = () => {
   }, []);
 
   return (
-    <Box display={"flex"} justifyContent={"space-between"}gap={"20px"} sx={{padding:"50px 50px"}}>
+    <Box
+      display={"flex"}
+      justifyContent={"space-between"}
+      gap={"20px"}
+      sx={{
+        padding: "50px 50px",
+      }}
+    >
       {courses.map((course) => (
-        <CoursesItem  course={course} key={course.id}/>
+        <CoursesItem course={course} key={course.id} />
       ))}
     </Box>
   );
