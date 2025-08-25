@@ -1,11 +1,17 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-const Layout = () => {
+import { Container } from "@mui/material";
+import type { ReactNode } from "react";
+interface LayoutProps{
+  children?: ReactNode;
+}
+const Layout = (props:LayoutProps) => {
   return (
-    <div>
+    <Container maxWidth={"xl"}>
       <Header />
+{props.children}
       <Footer />
-    </div>
+    </Container>
   );
 };
 export default Layout;

@@ -1,12 +1,14 @@
 import { create } from "zustand";
-import type { Course } from "../types";
+import type { Course, Module } from "../types";
 import axios from "axios";
 
 interface State {
   courses: Course[];
+  modules: Module[];
+  selectedModuleId: number|null;
   getCourses: () => Promise<void>;
 }
-export const useCourseStore = create<State>((set) => {
+export const useCourseStore = create<State>((set, get ) => {
   return {
     courses: [],
     getCourses: async () => {
@@ -14,9 +16,10 @@ export const useCourseStore = create<State>((set) => {
         const { data } = await axios.get("http://localhost:3000/courses");
         set({ courses: data });
       } catch (e) {
-        console.log(e);
+       console.error("Failed to fetch courses:", e);
       }
     },
+    
   };
 });
 export const useCourses = () => useCourseStore((store) => store.courses);

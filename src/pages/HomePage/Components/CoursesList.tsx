@@ -22,7 +22,7 @@ const CoursesList = () => {
         padding: "50px 50px",
       }}
     >
-      <Swiper>
+      <Swiper slidesPerView={1} >
         {" "}
         {courses.map((course) => {
           return (
