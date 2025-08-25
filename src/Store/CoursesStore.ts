@@ -1,21 +1,28 @@
 import { create } from "zustand";
-import type { Course, Lesson, Module } from "../types";
+import type { Course, Exercise, Lesson, Module } from "../types";
 import axios from "axios";
-import { Try } from "@mui/icons-material";
 
 interface State {
   courses: Course[];
   modules: Module[];
   lessons: Lesson[];
-  selectedModuleId: number | null;
+  exercises: Exercise[];
+  selectedCourseId: number | null;
   getCourses: () => Promise<void>;
-  getModules: (current_pk: number) => Promise<void>;
-  getLessons: (module_pk: number) => Promise<void>;
+  setSelectedCourseId: (id: number) => void;
+  getSelectedModules: (courseId: number) => Promise<void>;
+  getSelectedLessons: (moduleId: number) => Promise<void>;
+  getSelectedExercises: (lessonId: number) => Promise<void>;
 }
 
 export const useCourseStore = create<State>((set, get) => {
   return {
     courses: [],
+    selectedCourseId: null,
+    modules: [],
+    lessons: [],
+    exercises: [],
+
     getCourses: async () => {
       try {
         const { data } = await axios.get("http://localhost:3000/courses");
@@ -24,35 +31,52 @@ export const useCourseStore = create<State>((set, get) => {
         console.error("Failed to fetch courses:", e);
       }
     },
-    getModules: async (course_pk) => {
+    setSelectedCourseId: (id) => {
+      set({ selectedCourseId: id });
+    },
+    getSelectedModules: async (courseId) => {
       try {
         const { data } = await axios.get<Module[]>(
-          `http://localhost:3000/courses/${course_pk}/modules`
+          `http://localhost:3000/modules?course_pk=${courseId}`
         );
         set({ modules: data });
       } catch (e) {
-        console.error("Failed to fetch modules:", e);
+        console.error(`Failed to fetchlessons: ${courseId}`, e);
       }
     },
-    getLessons: async (module_pk) => {
+    getSelectedLessons: async (moduleId) => {
       try {
         const { data } = await axios.get<Lesson[]>(
-          `http://localhost:3000/courses/${module_pk}/modules`
+          `http://localhost:3000/lessons?module_pk=${moduleId}`
         );
         set({ lessons: data });
       } catch (e) {
-        console.error("Failed to fetchlessons:", e);
+        console.error(`Failed to fetchlessons: ${moduleId}`, e);
+      }
+    },
+    getSelectedExercises: async (lessonId) => {
+      try {
+        const { data } = await axios.get<Exercise[]>(
+         `http://localhost:3000/exercises?lesson_pk=${lessonId}`
+        );
+        set({ exercises: data });
+      } catch (e) {
+        console.error(`Failed to fetch exercise for lesson: ${lessonId}`, e);
       }
     },
   };
 });
 export const useCourses = () => useCourseStore((store) => store.courses);
+export const useModules = () => useCourseStore((store) => store.modules);
+export const useLessons = () => useCourseStore((store) => store.lessons);
+export const useExercises = () => useCourseStore((store) => store.exercises);
 
 export const useCoursesAction = () => {
   const store = useCourseStore();
   return {
     getCourses: store.getCourses,
-    getModules: store.getModules,
-    getLessons: store.getLessons,
+    getModules: store.getSelectedModules,
+    getLessons: store.getSelectedLessons,
+    getExercises: store.getSelectedExercises,
   };
 };

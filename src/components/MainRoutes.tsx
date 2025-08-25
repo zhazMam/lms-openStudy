@@ -6,7 +6,7 @@ const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/main" element={<HomePage />}></Route>
-      <Route path="/courses" element={<CoursesDetailPage />}></Route>
+      <Route path="/courses/:course_pk" element={<CoursesDetailPage />}></Route>
     </Routes>
   );
 };
