@@ -1,10 +1,10 @@
 import { Box, Button, Collapse, Container, Typography } from "@mui/material";
-import ModuleList from "../ModulesDetailPage/components/ModuleList";
+import ModuleList from "./components/ModuleList";
 import { useCoursesAction, useModules } from "../../Store/CoursesStore";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const CoursesDetailPage = () => {
+const ModulesDetailPage = () => {
   const { getModules } = useCoursesAction();
   const modules = useModules();
   const { courseId } = useParams();
@@ -22,4 +22,4 @@ const CoursesDetailPage = () => {
     </Box>
   );
 };
-export default CoursesDetailPage;
+export default ModulesDetailPage;

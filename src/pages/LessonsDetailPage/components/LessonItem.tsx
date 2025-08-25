@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import type { Lesson } from "../../../../types";
+import type { Lesson } from "../../../types";
 import { useState } from "react";
-import { useCoursesAction, useExercises } from "../../../../Store/CoursesStore";
-import ExerciseList from "../Exercises/ExerciseList";
+import { useCoursesAction, useExercises } from "../../../Store/CoursesStore";
+import ExerciseList from "../../ExercisesPage/components/ExerciseList";
 
 interface LessonItemProps {
   lesson: Lesson;
@@ -26,7 +26,7 @@ const LessonItem = (props: LessonItemProps) => {
       <Typography>конец урока в {props.lesson.end_at}</Typography>
       <Typography>Cсылка на встречу {props.lesson.meeting_url}</Typography>
       <Typography>Урок № {props.lesson.position}</Typography>
-      
+
       <ExerciseList exercises={exercises} />
     </Box>
   );

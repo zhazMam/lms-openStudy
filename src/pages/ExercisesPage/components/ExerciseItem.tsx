@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import type { Exercise } from "../../../../types";
+import type { Exercise } from "../../../types";
 
 interface ExerciseItemProps {
   exercise: Exercise;
