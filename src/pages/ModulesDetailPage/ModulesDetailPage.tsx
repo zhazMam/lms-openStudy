@@ -1,24 +1,25 @@
-import { Box, Button, Collapse, Container, Typography } from "@mui/material";
-import ModuleList from "./components/ModuleList";
-import { useCoursesAction, useModules } from "../../Store/CoursesStore";
+import { Box } from "@mui/material";
+import { useCoursesAction, useLessons } from "../../Store/CoursesStore";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import LessonList from "./components/LessonList";
 
 const ModulesDetailPage = () => {
   const { getModules } = useCoursesAction();
-  const modules = useModules();
-  const { courseId } = useParams();
+  const lessons = useLessons();
+  const { module_pk } = useParams();
 
   useEffect(() => {
-    const id = Number(courseId);
+    const id = Number(module_pk);
     if (id) {
       getModules(id);
     }
-  }, [courseId, getModules]);
+  }, [module_pk, getModules]);
 
   return (
     <Box>
-      <ModuleList modules={modules} />
+      Modules detail Page {module_pk}
+      <LessonList lessons={lessons} />
     </Box>
   );
 };

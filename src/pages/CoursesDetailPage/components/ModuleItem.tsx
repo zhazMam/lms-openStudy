@@ -1,8 +1,9 @@
 import { Box, Collapse, Typography } from "@mui/material";
 import type { Module } from "../../../types";
-import LessonList from "../../LessonsDetailPage/components/LessonList";
+import LessonList from "../../ModulesDetailPage/components/LessonList";
 import { useCoursesAction, useLessons } from "../../../Store/CoursesStore";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 interface ModuleItemProps {
   module: Module;
   isSelected: boolean;
@@ -11,6 +12,8 @@ interface ModuleItemProps {
 const ModuleItem = (props: ModuleItemProps) => {
   const { getLessons } = useCoursesAction();
   const lessons = useLessons();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (props.isSelected) {
       getLessons(props.module.id);
@@ -21,7 +24,7 @@ const ModuleItem = (props: ModuleItemProps) => {
     <Box>
       <Box
         onClick={() => {
-          props.onSelect(props.module.id);
+          navigate(`modules/${props.module.id}`);
         }}
       >
         <Typography>{props.module.title}</Typography>

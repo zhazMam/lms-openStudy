@@ -15,10 +15,11 @@ interface State {
   getSelectedExercises: (lessonId: number) => Promise<void>;
 }
 
-export const useCourseStore = create<State>((set, get) => {
+export const useCourseStore = create<State>((set) => {
   return {
     courses: [],
     selectedCourseId: null,
+    selectedModeId: null,
     modules: [],
     lessons: [],
     exercises: [],

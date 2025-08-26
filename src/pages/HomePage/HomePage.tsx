@@ -1,12 +1,14 @@
 import { Typography } from "@mui/material";
-import CoursesList from "../CoursesDetailPage/Components/CoursesList";
-import CoursesDetailPage from "../CoursesDetailPage/CoursesDetailPage";
+import CoursesList from "./Components/CoursesList";
 
 const HomePage = () => {
   return (
     <div>
-      <Typography variant="h4" style={{textAlign:"center"}}> Your Courses</Typography>
-      <CoursesDetailPage />
+      <Typography variant="h4" style={{ textAlign: "center" }}>
+        {" "}
+        Your Courses
+      </Typography>
+      <CoursesList />
     </div>
   );
 };

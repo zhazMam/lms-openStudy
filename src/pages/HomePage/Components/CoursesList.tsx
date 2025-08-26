@@ -3,7 +3,6 @@ import { useCourses, useCoursesAction } from "../../../Store/CoursesStore";
 import CoursesItem from "./CoursesItem";
 import { Box } from "@mui/material";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 
 const CoursesList = () => {
   const { getCourses } = useCoursesAction();
@@ -22,16 +21,10 @@ const CoursesList = () => {
         padding: "50px 50px",
       }}
     >
-      <Swiper slidesPerView={1} >
-        {" "}
-        {courses.map((course) => {
-          return (
-            <SwiperSlide>
-              <CoursesItem course={course} key={course.id} />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      {" "}
+      {courses.map((course) => {
+        return <CoursesItem course={course} key={course.id} />;
+      })}
     </Box>
   );
 };

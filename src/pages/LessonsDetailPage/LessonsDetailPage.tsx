@@ -1,24 +1,28 @@
 import { Box } from "@mui/material";
-import { useCoursesAction, useLessons } from "../../Store/CoursesStore";
+import {
+  useCoursesAction,
+  useExercises,
+} from "../../Store/CoursesStore";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import LessonList from "./components/LessonList";
+import ExerciseList from "./components/ExerciseList";
 
 const LessonsDetailPage = () => {
-  const { getLessons } = useCoursesAction();
-  const lessons = useLessons();
-  const { courseId } = useParams();
+  const { getExercises } = useCoursesAction();
+  const exercises = useExercises();
+  const { lesson_pk } = useParams();
 
   useEffect(() => {
-    const id = Number(courseId);
+    const id = Number(lesson_pk);
     if (id) {
-      getLessons(id);
+      getExercises(id);
     }
-  }, [courseId, getLessons]);
+  }, [lesson_pk, getExercises]);
 
   return (
     <Box>
-      <LessonList lessons={lessons} />
+      LessonsDetailPage {lesson_pk}
+      <ExerciseList exercises={exercises} />
     </Box>
   );
 };

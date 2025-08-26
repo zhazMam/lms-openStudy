@@ -1,19 +1,26 @@
 import { Box, Typography } from "@mui/material";
 import type { Exercise } from "../../../types";
+import { useNavigate } from "react-router-dom";
 
 interface ExerciseItemProps {
   exercise: Exercise;
 }
 const ExerciseItem = (props: ExerciseItemProps) => {
+  const navigate = useNavigate();
+
   return (
-    <Box>
+    <Box
+      onClick={() => navigate(`exercises/${props.exercise.lesson}`)}
+      sx={{
+        padding: "50px 50px",
+        width: "250px",
+        boxShadow:
+          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        borderRadius: "10px",
+      }}
+    >
       <Typography>{props.exercise.title}</Typography>
       <Typography>{props.exercise.lesson}</Typography>
-      <Typography>{props.exercise.description}</Typography>{" "}
-      <Typography>{props.exercise.due_at}</Typography>
-      <Typography>{props.exercise.sample_solution}</Typography>
-      <Typography>{props.exercise.status}</Typography>
-      <Typography>{props.exercise.max_score}</Typography>
     </Box>
   );
 };

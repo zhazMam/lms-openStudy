@@ -30,6 +30,7 @@ export type Lesson = {
 };
 
 export type Exercise = {
+  id: number,
   lesson: number;
   title: string;
   description: string;

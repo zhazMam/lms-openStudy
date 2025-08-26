@@ -70,7 +70,8 @@
   ],
   "exercises": [
     {
-      "lesson_pk": 1,
+      "id": 1,
+      "lesson": 1,
       "title": "Exercise 1.1: Quiz",
       "description": "Test your knowledge of the course overview.",
       "status": "pending",
@@ -79,7 +80,8 @@
       "sample_solution": "The quiz is open book."
     },
     {
-      "lesson_pk": 2,
+      "id": 2,
+      "lesson": 2,
       "title": "Exercise 2.1: Variable Practice",
       "description": "Create and manipulate different types of variables.",
       "status": "pending",
