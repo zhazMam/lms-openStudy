@@ -1,11 +1,9 @@
 import { Button, Typography } from "@mui/material";
 import CoursesList from "./Components/CoursesList";
-import { useEffect, useState } from "react";
 import { useIsAuth, useJustSignedUp } from "../../Store/AuthStore";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const justSignedUp = useJustSignedUp();
   const isAuth = useIsAuth();
 
