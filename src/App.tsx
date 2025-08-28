@@ -1,7 +1,11 @@
-
-
+import MainRoutes from "./components/MainRoutes";
+import "./global/reset.css";
 function App() {
-  return <div>123</div>
+  return (
+    <div>
+      <MainRoutes />
+    </div>
+  );
 }
 
-export default App 
+export default App;

@@ -1,0 +1,125 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Introduction to Python",
+      "price": "99.99",
+      "starts_at": "2025-09-01T09:00:00Z",
+      "end_at": "2025-10-01T17:00:00Z",
+      "description": "Learn the fundamentals of Python programming.",
+      "is_active": true,
+      "duration": 40
+    },
+    {
+      "id": 2,
+      "title": "Data Structures & Algorithms",
+      "price": "149.50",
+      "starts_at": "2025-09-15T10:00:00Z",
+      "end_at": "2025-11-15T18:00:00Z",
+      "description": "Master essential data structures and algorithms.",
+      "is_active": true,
+      "duration": 80
+    }
+  ],
+  "modules": [
+    {
+      "id": 101,
+      "course_pk": 1,
+      "title": "Module 1: Getting Started",
+      "description": "An introduction to the course topics.",
+      "position": 1
+    },
+    {
+      "id": 102,
+      "course_pk": 1,
+      "title": "Module 2: Python Syntax",
+      "description": "Understanding Python's core syntax and data types.",
+      "position": 2
+    },
+    {
+      "id": 201,
+      "course_pk": 2,
+      "title": "Module 1: Introduction to Data Structures",
+      "description": "What are data structures and why do we use them?",
+      "position": 1
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "module_pk": 101,
+      "title": "Lesson 1: Course Overview",
+      "description": "Welcome to the course!",
+      "content": "This is the content for the first lesson.",
+      "position": 1,
+      "starts_at": "2025-09-01T09:00:00Z",
+      "end_at": "2025-09-01T10:00:00Z",
+      "meeting_url": "http://example.com/meeting/1"
+    },
+    {
+      "id": 2,
+      "module_pk": 102,
+      "title": "Lesson 1: Variables",
+      "description": "Learn how to declare and use variables in Python.",
+      "content": "This lesson covers Python variables.",
+      "position": 1,
+      "starts_at": "2025-09-08T09:00:00Z",
+      "end_at": "2025-09-08T10:00:00Z",
+      "meeting_url": "http://example.com/meeting/2"
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "lesson": 1,
+      "title": "Exercise 1.1: Quiz",
+      "description": "Test your knowledge of the course overview.",
+      "status": "pending",
+      "due_at": "2025-09-02T17:00:00Z",
+      "max_score": 10,
+      "sample_solution": "The quiz is open book."
+    },
+    {
+      "id": 2,
+      "lesson": 2,
+      "title": "Exercise 2.1: Variable Practice",
+      "description": "Create and manipulate different types of variables.",
+      "status": "pending",
+      "due_at": "2025-09-09T17:00:00Z",
+      "max_score": 20,
+      "sample_solution": "Use comments to explain each variable."
+    }
+  ],
+  "users": [
+    {
+      "email": "mrs.mistery92@gmail.com",
+      "password": "$2a$10$rIIcpoVuIgT4aV7x8aUgkuWzKoryJjKSPIcTzhaVfS6S9O5hVkflq",
+      "username": "justiam",
+      "id": 1
+    },
+    {
+      "email": "mrs.mistery92@gmail.co",
+      "password": "$2a$10$eV55PZPTDDv.jLS82q08QOyVj66V0lcdyB0PzMB3GXSWpB/ZsdIbq",
+      "username": "k",
+      "id": 2
+    },
+    {
+      "email": "mrs.mistery92@gmail",
+      "password": "$2a$10$DFXJKQouhcpksNvzt1TTYupfq5w8uUs7X.TuGN7zapPFHWbcjoJmC",
+      "username": "2",
+      "id": 3
+    },
+    {
+      "email": "mrs.mistery92@gm",
+      "password": "$2a$10$1/rDjMAIIEAay5vPa85cZOOzmircK7133iCbRfT2HRcRB50Pdazxy",
+      "username": "sss",
+      "id": 4
+    },
+    {
+      "email": "mrs.mistery92@g",
+      "password": "$2a$10$3crKF0Vpahyiqv.dV6l6Q.gKooRPa4S/.WnIe40kMn4dd8xgxvMPy",
+      "username": "bhj",
+      "id": 5
+    }
+  ]
+}
