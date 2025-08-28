@@ -3,11 +3,7 @@ import { useCourses, useCoursesAction } from "../../../Store/CoursesStore";
 import CoursesItem from "./CoursesItem";
 import { Box } from "@mui/material";
 
-interface CoursesListProps {
-  onOpenSidebar: () => void;
-}
-
-const CoursesList = (props: CoursesListProps) => {
+const CoursesList = () => {
   const { getCourses } = useCoursesAction();
   const courses = useCourses();
 
@@ -26,12 +22,7 @@ const CoursesList = (props: CoursesListProps) => {
     >
       {" "}
       {courses.map((course) => {
-        return (
-          <CoursesItem
-            course={course}
-            key={course.id}
-          />
-        );
+        return <CoursesItem course={course} key={course.id} />;
       })}
     </Box>
   );

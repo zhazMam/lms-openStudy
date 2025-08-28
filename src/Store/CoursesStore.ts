@@ -26,7 +26,9 @@ export const useCourseStore = create<State>((set) => {
 
     getCourses: async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/courses");
+        const { data } = await axios.get(
+          "https://baemir.pythonanywhere.com/api/courses/"
+        );
         set({ courses: data });
       } catch (e) {
         console.error("Failed to fetch courses:", e);
@@ -38,7 +40,7 @@ export const useCourseStore = create<State>((set) => {
     getSelectedModules: async (courseId) => {
       try {
         const { data } = await axios.get<Module[]>(
-          `http://localhost:3000/modules?course_pk=${courseId}`
+          `https://baemir.pythonanywhere.com/api/courses/course_pk=${courseId}/modules/`
         );
         set({ modules: data });
       } catch (e) {
@@ -48,7 +50,7 @@ export const useCourseStore = create<State>((set) => {
     getSelectedLessons: async (moduleId) => {
       try {
         const { data } = await axios.get<Lesson[]>(
-          `http://localhost:3000/lessons?module_pk=${moduleId}`
+          `https://baemir.pythonanywhere.com/api/courses/course_pk/modules/module_pk=${moduleId}/lessons/`
         );
         set({ lessons: data });
       } catch (e) {
@@ -58,13 +60,15 @@ export const useCourseStore = create<State>((set) => {
     getSelectedExercises: async (lessonId) => {
       try {
         const { data } = await axios.get<Exercise[]>(
-         `http://localhost:3000/exercises?lesson_pk=${lessonId}`
+          `https://baemir.pythonanywhere.com/api/courses/course_pk/modules/module_pk/lessons/lesson_pk=${lessonId}/exercises/
+`
         );
         set({ exercises: data });
       } catch (e) {
         console.error(`Failed to fetch exercise for lesson: ${lessonId}`, e);
       }
     },
+   
   };
 });
 export const useCourses = () => useCourseStore((store) => store.courses);
