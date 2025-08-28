@@ -10,10 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [emailValue, setEmailValue] = useState("");
+  const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [emptyEmailError, setEmptyEmailError] = useState("");
+  const [emptyUsernameError, setEmptyUsernameError] = useState("");
   const [emptyPasswordError, setEmptyPasswordError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
@@ -21,12 +21,12 @@ const LoginPage = () => {
   const { login } = useAuthAction();
 
   const handleClick = async () => {
-    setEmptyEmailError("");
+    setEmptyUsernameError("");
     setEmptyPasswordError("");
 
     let hasError = false;
-    if (emailValue === "") {
-      setEmptyEmailError("Email is required");
+    if (usernameValue === "") {
+      setEmptyUsernameError("Email is required");
       hasError = true;
     }
     if (passwordValue === "") {
@@ -36,11 +36,11 @@ const LoginPage = () => {
     if (!hasError) {
       try {
         const success = await login({
-          email: emailValue,
+          username: usernameValue,
           password: passwordValue,
         });
         if (success) {
-          navigate("/main");
+          navigate("https://baemir.pythonanywhere.com/api/courses/");
         } else {
           setLoginError("Invalid email or password. Please try again.");
         }
@@ -73,13 +73,13 @@ const LoginPage = () => {
             sx={{ width: "500px", margin: "0 auto" }}
           >
             <TextField
-              label="*Email Address"
-              type="email"
+              label="*User name"
+              type="text"
               variant="outlined"
-              value={emailValue}
-              onChange={(e) => setEmailValue(e.target.value)}
-              error={Boolean(emptyEmailError)}
-              helperText={emptyEmailError}
+              value={usernameValue}
+              onChange={(e) => setUsernameValue(e.target.value)}
+              error={Boolean(emptyUsernameError)}
+              helperText={emptyUsernameError}
             />
             <TextField
               label="*Password"

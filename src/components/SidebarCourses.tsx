@@ -11,7 +11,8 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookIcon from "@mui/icons-material/Book";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DomainVerificationIcon from "@mui/icons-material/DomainVerification";
-
+import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface NavItem {
   id: string;
@@ -26,13 +27,8 @@ const navItems: NavItem[] = [
 ];
 
 export default function SidebarCourses() {
-  const [open, setOpen] = React.useState(false);
-
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
-  };
   const drawerContent = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 250 }} role="presentation">
       <List>
         {navItems.map((item) => (
           <ListItem key={item.id} disablePadding>
@@ -49,6 +45,7 @@ export default function SidebarCourses() {
 
   return (
     <Drawer anchor="left" variant="permanent">
+      <Typography textAlign={"center"} variant="h5"><Link to="/main">Open Study</Link></Typography>
       {drawerContent}
     </Drawer>
   );

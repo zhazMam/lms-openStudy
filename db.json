@@ -89,5 +89,37 @@
       "max_score": 20,
       "sample_solution": "Use comments to explain each variable."
     }
+  ],
+  "users": [
+    {
+      "email": "mrs.mistery92@gmail.com",
+      "password": "$2a$10$rIIcpoVuIgT4aV7x8aUgkuWzKoryJjKSPIcTzhaVfS6S9O5hVkflq",
+      "username": "justiam",
+      "id": 1
+    },
+    {
+      "email": "mrs.mistery92@gmail.co",
+      "password": "$2a$10$eV55PZPTDDv.jLS82q08QOyVj66V0lcdyB0PzMB3GXSWpB/ZsdIbq",
+      "username": "k",
+      "id": 2
+    },
+    {
+      "email": "mrs.mistery92@gmail",
+      "password": "$2a$10$DFXJKQouhcpksNvzt1TTYupfq5w8uUs7X.TuGN7zapPFHWbcjoJmC",
+      "username": "2",
+      "id": 3
+    },
+    {
+      "email": "mrs.mistery92@gm",
+      "password": "$2a$10$1/rDjMAIIEAay5vPa85cZOOzmircK7133iCbRfT2HRcRB50Pdazxy",
+      "username": "sss",
+      "id": 4
+    },
+    {
+      "email": "mrs.mistery92@g",
+      "password": "$2a$10$3crKF0Vpahyiqv.dV6l6Q.gKooRPa4S/.WnIe40kMn4dd8xgxvMPy",
+      "username": "bhj",
+      "id": 5
+    }
   ]
 }

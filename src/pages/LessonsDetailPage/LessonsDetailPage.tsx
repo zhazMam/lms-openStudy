@@ -21,7 +21,7 @@ const LessonsDetailPage = () => {
 
   return (
     <Box>
-      LessonsDetailPage {lesson_pk}
+      Lessons DetailPage {lesson_pk}
       <ExerciseList exercises={exercises} />
     </Box>
   );

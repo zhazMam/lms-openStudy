@@ -7,10 +7,13 @@ interface CoursesItemProps {
 }
 const CoursesItem = (props: CoursesItemProps) => {
   const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/courses/${props.course.id}`);
+  };
 
   return (
     <Box
-      onClick={() => navigate(`/courses/${props.course.id}`)}
+      onClick={handleClick}
       sx={{
         padding: "50px 50px",
         width: "250px",
@@ -20,7 +23,6 @@ const CoursesItem = (props: CoursesItemProps) => {
       }}
     >
       <Typography variant="h5">{props.course.title}</Typography>
-      <Typography>{props.course.description}</Typography>
     </Box>
   );
 };

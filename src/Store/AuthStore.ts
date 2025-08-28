@@ -8,7 +8,7 @@ interface State {
   logout: () => void;
   token: string | null;
   isAuth: Boolean;
-  login: (user: object) => Promise<boolean>;
+  login: (user: { username: string; password?: string }) => Promise<boolean>;
   justSignedUp: Boolean;
 }
 export const useAuthStore = create<State>((set) => {
@@ -22,7 +22,7 @@ export const useAuthStore = create<State>((set) => {
       console.log(newUser);
       try {
         const { data } = await axios.post(
-          "http://localhost:3000/register",
+          "https://baemir.pythonanywhere.com/api/user/register/",
           newUser
         );
         if (data.accessToken) {
@@ -47,7 +47,10 @@ export const useAuthStore = create<State>((set) => {
     login: async (User) => {
       console.log(User);
       try {
-        const { data } = await axios.post("http://localhost:3000/login", User);
+        const { data } = await axios.post(
+          "https://baemir.pythonanywhere.com/api/user/token/",
+          User
+        );
         if (data.accessToken) {
           set({
             token: data.accessToken,

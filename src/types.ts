@@ -30,7 +30,7 @@ export type Lesson = {
 };
 
 export type Exercise = {
-  id: number,
+  id: number;
   lesson: number;
   title: string;
   description: string;
@@ -38,4 +38,10 @@ export type Exercise = {
   due_at: string;
   max_score: number;
   sample_solution: string;
+};
+export type User = {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
 };

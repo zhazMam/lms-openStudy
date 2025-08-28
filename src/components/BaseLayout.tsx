@@ -7,15 +7,17 @@ import SidebarCourses from "./SidebarCourses";
 
 const BaseLayout = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/main";
+  const isHomePage = location.pathname === "https://baemir.pythonanywhere.com/api/courses/";
+  const isLoginPage = location.pathname === "https://baemir.pythonanywhere.com/api/user/token";
+  const isSignUpPage = location.pathname === "https://baemir.pythonanywhere.com/api/user/register";
 
   return (
-    <Container maxWidth={"xl"}>
+    <Container maxWidth={"lg"}>
       <Header />
       <Outlet />
       <Footer />
 
-      {!isHomePage && <SidebarCourses />}
+      {!isHomePage||!isLoginPage||isSignUpPage && <SidebarCourses />}
     </Container>
   );
 };

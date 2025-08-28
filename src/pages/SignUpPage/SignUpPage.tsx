@@ -64,7 +64,7 @@ const SignUpPage = () => {
     };
     const success = await signUp(newUser);
     if (success) {
-      navigate("/main");
+      navigate("https://baemir.pythonanywhere.com/api/courses/");
       console.log("User successfully signed up and is being redirected.");
     } else {
       console.error(
