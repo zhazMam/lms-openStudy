@@ -45,8 +45,7 @@ const LoginPage = () => {
           setLoginError("Invalid email or password. Please try again.");
         }
       } catch (e) {
-        const errorMessage = e.toString();
-        setLoginError(`${errorMessage}`);
+        setLoginError(`Failed to login`);
         console.error("Login API call failed:", e);
       }
     }

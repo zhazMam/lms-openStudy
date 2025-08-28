@@ -9,11 +9,7 @@ const HomePage = () => {
   const justSignedUp = useJustSignedUp();
   const isAuth = useIsAuth();
 
-  const handleOpenSidebar = () => {
-    setIsSidebarOpen(true);
-  };
 
-  useEffect(() => console.log("isSidebarOpen", isSidebarOpen), [isSidebarOpen]);
 
   return (
     <div>
@@ -28,7 +24,7 @@ const HomePage = () => {
           </Link>
         </Button>
       ) : (
-        <CoursesList onOpenSidebar={handleOpenSidebar} />
+        <CoursesList  />
       )}
     </div>
   );
